@@ -61,7 +61,7 @@ const getLogs = async (req, res) => {
     if (from || to) {
       filter.date = {};
       if (from) filter.date.$gte = new Date(from);
-      if (to) filter.date.$gte = new Date(to);
+      if (to) filter.date.$lte = new Date(to);
     }
 
     let exercises = await Exercise.find(filter);
